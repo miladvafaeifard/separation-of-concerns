@@ -1,0 +1,18 @@
+{
+  "name": "separation-of-concerns-functions",
+  "version": "1.0.0",
+  "description": "Separation of concerns - function real-world examples",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon ./main.js"
+  },
+  "keywords": ["separation", "concerns", "functions", "signlanguagetech"],
+  "author": "Sign Language Tech",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "nodemonConfig": {
+    "quiet": true
+  }
+}
