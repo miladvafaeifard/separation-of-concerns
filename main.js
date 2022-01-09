@@ -1,10 +1,7 @@
 console.clear();
 console.log('************************************');
 
-const pipe =
-  (...fns) =>
-  x =>
-    fns.reduce((v, f) => f(v), x);
+const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
 
 const menus = [
   {
@@ -54,9 +51,7 @@ function filterJunkFood(menus) {
 }
 
 function filterLargeFood(size) {
-  return menus => menus.filter(
-    menu => menu.sizes.filter(s => s === size).length > 0
-  );
+  return menus => menus.filter(menu => menu.sizes.filter(s => s === size).length > 0);
 }
 
 function filterPrices(prices, price) {
@@ -65,15 +60,15 @@ function filterPrices(prices, price) {
 
 function haveCheapFoodAvaliable(price) {
   return menus => menus
-  .filter(menu => filterPrices(menu.prices, price).length > 0)
-  .map(menu => {
-    const cheaperPrices = menu.prices.filter(p => p < price);
-    return {
-      ...menu,
-      prices: filterPrices(menu.prices, price),
-      sizes: cheaperPrices.map((_, index) => menu.sizes[index]),
-    };
-  });
+    .filter(menu => filterPrices(menu.prices, price).length > 0)
+    .map(menu => {
+      const cheaperPrices = menu.prices.filter(p => p < price);
+      return {
+        ...menu,
+        prices: filterPrices(menu.prices, price),
+        sizes: cheaperPrices.map((_, index) => menu.sizes[index]),
+      };
+    });
 }
 
 const orderFood = pipe(
